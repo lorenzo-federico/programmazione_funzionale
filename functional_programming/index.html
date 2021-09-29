@@ -1,0 +1,813 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+    <title>Programmazione Funzionale</title>
+</head>
+<body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Programmazione Funzionale</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Sezioni
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#functionDeclaration">Function Declaration</a></li>
+                    <li><a class="dropdown-item" href="#functionExpression">Function Expression</a></li>
+                    <li><a class="dropdown-item" href="#higherOrderFunction">Higher Order Function</a></li>
+                    <li><a class="dropdown-item" href="#closures">Closures</a></li>
+                    <li><a class="dropdown-item" href="#pureFunctions">Pure Functions</a></li>
+                    <li><a class="dropdown-item" href="#immutabilità">Immutabilità</a></li>
+                    <li><a class="dropdown-item" href="#trasparenzaReferenziale">Trasparenza Referenziale</a></li>
+                    <li><a class="dropdown-item" href="#funzionePura">Funzione Pura</a></li>
+                    <li><a class="dropdown-item" href="#partialApplication">Partial Application</a></li>
+                    <li><a class="dropdown-item" href="#currying">Currying</a></li>
+                    <li><a class="dropdown-item" href="#functionComposition">Function Composition</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    <div class="container">
+        <div class="row justify-content-evenly">
+            <div class="text-center">
+                <h1>Programmazione Funzionale</h1>
+            </div>
+            <div class="col-12">
+                <p>
+                    La programmazione funzionale non è altro che un <strong>paradigma di programmazione</strong>, ossia un modo di scrivere codice e di organizzare i nostri programmi. 
+                </p>
+                <p>
+                    E' un'alternativa alla programmazione procedurale o a quella orientata ad oggetti.
+                </p>
+                <div class="d-flex align-items-center">
+                    <div class="col-6">
+                        <p>
+                            L'elemento di partenza per la programmazione funzionale è il concetto di funzione. Come sappiamo è un oggetto a cui possiamo assegnare proprietà e metodi
+                        </p>
+                    </div>
+                    <div class="col-6">
+                        <figure>
+                            <img src="./img/functionalprogramming.png" alt="" class="img-fluid">
+                        </figure>
+                    </div>
+                </div>
+                
+            </div>
+            <hr>
+            <div class="text-center">
+                <p>
+                    Possiamo scrivere una funzione in due modi, o con la <strong>dichiarazione</strong> ( <strong>FUNCTION DECLARATION</strong> ), o con una <strong>espressione</strong> ( <strong>FUNCTION EXPRESSION</strong> ).
+                </p>
+            </div>
+            <!-- function declaration -->
+            <section id="functionDeclaration">
+                <div class="col-12 col-md-5 m-3">
+                    <h4 class="bg-info">
+                        Function Declaration
+                    </h4>
+                    <p>
+                        Dichiariamo una funzione con la keyword <strong>function</strong> seguita dal nome che vogliamo dare alla funzione, all'interno delle parentesi tonde inseriremo i parametri formali che useremo poi nel corpo della funzione, ossia la porzione di codice racchiusa da parentesi graffe. Essenziale inserire anche la keyword <strong>return</strong> all'interno del corpo, se non lo facciamo la funzione non ha modo di comunicare all'esterno ciò che ha fatto e javascript di default gli assegna il valore undefined. Una volta dichiarata una funzione con i suoi parametri formali è poi possibile invocarla passando dei parametri reali.
+                    </p>
+                    <figure>
+                        <img src="./img/Immagine 2021-09-28 160642.png" alt="" class="img-fluid">
+                    </figure>
+                </div>
+            </section>
+            <!-- function expression -->
+            <section id="functionExpression">
+                <div class="col-12 col-md-5 m-3">
+                    <h4 class="bg-info">
+                        Function Expression
+                    </h4>
+                    <p>
+                        Possiamo usare la keyword <strong>function</strong> per definire anche la funzione all'interno di una espressione. La <strong>differenza</strong> rispetto alla function declaration è che <strong>nelle function expression </strong>il <strong>nome</strong> della <strong>funzione</strong> è <strong>opzionale</strong>, cosa che ci <strong>permette</strong> di <strong>creare</strong> delle <strong>funzioni anonime</strong>.  
+                    </p>
+                    <figure><img src="./img/Immagine 2021-09-28 161604.png" alt="" class="img-fluid"></figure>
+                    <p>
+                        Una function expression può essere <strong>scritta</strong> come <strong>arrow function</strong> con tutti i pro e i contro che ne conseguono.
+                    </p>
+                    <figure><img src="./img/Immagine 2021-09-28 161950.png" alt="" class="img-fluid"></figure>
+                </div>
+                <hr>
+            </section>
+            <!-- higher order function -->
+            <section id="higherOrderFunction">
+                <div class="text-center">
+                    <h3 class="bg-warning">
+                        Higher Order Functions
+                    </h3>
+                </div>
+                <div class="d-flex col-12 col-md-5 m-3">
+                    <figure><img src="./img/Immagine 2021-09-28 162245.png" alt="" class="img-fluid"></figure>
+                </div>  
+                <div class="col-12 col-md-5 m-3">
+                    <p> ←In questo caso stiamo violando il principio D.R.Y., don't repeat yourself.</p>
+                    <p>
+                        Per evitare di ripetere una funzione più volte usiamo il concetto di parametro formale nella definizione della funzione. Sarà riempito volta con il valore passato come parametro reale nella chiamata alla funzione.
+                    </p>
+                    <figure><img src="./img/Immagine 2021-09-28 162743.png" alt="" class="img-fluid" ></figure>
+                </div>
+                <hr>
+                <div class="text-center">
+                    <p>
+                        Delle funzioni che si occupano di raddoppiare, dividere o sommare 3 al numero passato come parametro formale e stampare in console il nuovo numero.
+                    </p>
+                </div>
+                <div class="row align-items-center justify-content-evenly">
+                    <div class="col-12 col-md-5 m-3">
+                        
+                        <figure><img src="./img/Immagine 2021-09-28 163438.png" alt="" class="img-fluid"></figure>
+                    </div>
+                    <div class="col-12 col-md-5 m-3">
+                        <p> ←In questo caso stiamo violando il principio D.R.Y., don't repeat yourself.</p>
+                        <p>
+                            Sappiamo che in javascript le <strong>funzioni</strong> sono <strong>oggetti</strong> di <strong>prima classe</strong>, quindi con le funzioni possiamo fare tutto ciò che possiamo fare con dei normalissimi oggetti:
+                        </p>
+                        <p class="mb-0">
+                            Una funzione può essere:
+                        </p>
+                        <ul>
+                            <li>salvata in una variabile</li>
+                            <li>passata come parametro ad una funzione</li>
+                            <li>ritornata ad un'altra funzione</li>
+                        </ul>
+                        
+                    </div>
+                </div>
+                <div class="col-12 col-md-5 m-3">
+                    <p>Per risolvere il nostro problema <strong>passiamo funzioni come parametri di altre funzioni</strong></p>
+                    <figure><img src="./img/Immagine 2021-09-28 170240.png" alt="" class="img-fluid"></figure>
+                    <p>
+                        Quì la nostra funzione prende come parametri formali un <strong>numero</strong> su cui dovrà operare e un' <strong>operazione</strong>, un set di istruzioni, che dovrà essere specificata attraverso una funzione.
+                    </p>
+                    <p>
+                        All'interno del corpo della funzione <strong>applichiamo questo set di istruzioni sul numero</strong> e lo stampiamo in console.
+                    </p>
+                </div>
+                <div class="col-12 col-md-5 m-3">
+                    <p class="fw-bold text-danger">Soluzioni</p>
+                    •
+                    <figure><img src="./img/Immagine 2021-09-28 170655.png" alt="" class="img-fluid"></figure>
+                    <p>
+                        <strong>istruzioni</strong> è lasciato in sospeso e sarà valorizzato al momento della chiamata stessa.
+                    </p>
+                    <hr>
+                    •
+                    <p>
+                        In realtà non abbiamo la necessità di creare funzioni separatamente e poi passarle. Possiamo scrivere una funzione direttamente come parametro formale come <strong>function expression</strong>, direttamente nella chiamata della funzione.
+                    </p>
+                    <figure><img src="./img/Immagine 2021-09-28 171101.png" alt="" class="img-fluid"></figure>
+                    <p class="text-danger bg-info">
+                        Ci sono moltissime funzioni di ordine superiore che accettano come parametri altre funzioni, basti pensare a <strong>.map .filter .reduce</strong> che sono le tre funzionalità sacre della programmazione funzionale
+                    </p>
+                </div>
+                <hr>
+            </section>
+            <!-- closures -->
+            <section id="closures">
+                <div class="text-center">
+                    <h3 class="bg-warning">Closures</h3>
+                </div>
+                <div class="col-12 col-md-5 m-3">
+                    <p>
+                        Possiamo ritornare funzioni come valori di ritorno da altre funzioni.
+                    </p>
+                    <figure><img src="./img/Immagine 2021-09-28 172941.png" alt="" class="img-fluid"></figure>
+                </div>
+                <div class="col-12 col-md-5 m-3">
+                    <p>
+                        Una closure è una chiusura. E' l'insieme di una funzione e dell'ambiente in cui questa funzione è stata salvata. 
+                    </p>
+                    <p class="bg-dark text-light"><strong>closure = function + lexical environment</strong></p>
+                </div>
+                <hr>
+                <!-- esempio 1 -->
+                <div class="col-12 col-md-5 m-3">
+                    •<p>Esempio semplice di closure</p>
+                    <figure><img src="./img/Immagine 2021-09-28 173431.png" alt="" class="img-fluid"></figure>
+                    <p>Nello scope globale definiamo una costante ed una funzione. La funzione riesce a leggere variabili e costanti nella stessa posizione in cui la funzione è stata scritta</p>
+                    <p>
+                        Javascript riesce a fare ciò attraverso un meccanismo, quello del <strong>LEXICAL ENVIRONMENT</strong> che permette di tener traccia di <strong>DOVE</strong> nel codice, una funzione è stata scritta e salvata, non di dove è stata invocata.
+                    </p>
+                </div>
+                <!-- esempio 2 -->
+                <div class="col-12 col-md-5 m-3">
+                    •<p>Esempio di closure con una funzione di ordine superiore che ritorna una funzione</p>
+                    <figure><img src="./img/Immagine 2021-09-28 174829.png" alt="" class="img-fluid"></figure>
+                    <p>Abbiamo una funzione <span>outer()</span> che al suo interno stampa in console una stringa <span>"outer"</span> e <strong>definisce e ritorna</strong> la funzione <span>inner()</span></p>
+                    <p>
+                        Non possiamo lanciare direttamente la funzione <span>inner()</span>, per farlo dobbiamo assegnare la funzione <span>outer()</span> ad una costante. <span>newFunction</span> sarà valorizzata con il valore ritornato dalla chiamata alla funzione <span>outer()</span>, ossia la funzione <span>inner()</span>. Chiamando la funzione newFunction() è come se stessimo lanciando la funzione inner(), ma non potremmo mai lanciare direttamente la funzione stessa.
+                    </p>
+                </div>
+                <!-- esempio 3 -->
+                <div class="col-12 col-md-5 m-3">
+                    •<figure><img src="./img/Immagine 2021-09-28 180522.png" alt="" class="img-fluid"></figure>
+                    <p>Abbiamo una funzione <span>counter()</span> che al suo interno dichiara una variabile <span>count</span> inizializzata a 0. <strong>definisce e ritorna</strong> la funzione <span>inner()</span> che incrementa <span>count()</span> e stampa un messaggio in console.</p>
+                    <p>
+                        Quando valorizziamo la costante <span>nuovaFunzione</span> con il valore ritornato dalla funzione <span>counter()</span> è come se nuovaFunzione adesso fosse la funzione inner(), si ricorda anche tutto ciò che è stato scritto dove la funzione inner() è stata creata. Quindi anche la variabile count(). Se lanciamo nuovaFunzione() 3 volte riusciamo ad aumentare il valore della variabile da 0 fino a 3. Non possiamo manomettere dall'esterno il valore della variabile count(), l'unico modo per intervenire per toccare la variabile count, è lanciare la funzione nuovaFunzione
+                    </p> 
+                </div>
+                <!-- esempio 4 -->
+                <div class="col-12 col-md-5 m-3">
+                    •<figure><img src="./img/Immagine 2021-09-28 181409.png" alt="" class="img-fluid"></figure>
+                    <p>La variabile <span>count</span> non è inarrivabile dall'esterno della funzione <span>atm()</span>, non la possiamo modificare, non la possiamo cambiare. 
+                    </div>
+                    <hr>
+                <div class="text-center">
+                    <p>Le closures e le funzioni che ritornano altre funzioni oltre a rendere blindate delle variabili, servono a scrivere il codice più leggibile e anche a creare funzioni generiche per specializzarne altre.
+                    </p> 
+                </div>
+                <!-- esempio 5 -->
+                <div class="col-12 col-md-5 m3">
+                    •<figure><img src="./img/Immagine 2021-09-28 183416.png" alt="" class="img-fluid"></figure>
+                    <p>
+                        Abbiamo un oggetto <span>jedi</span> con due proprietà, e una funzione <span>getPropByName</span> che estrae il valore di una proprietà passata come parametro.
+                    </p>
+                    <ul>
+                        <span>Come funziona:</span>
+                        <li>
+                            -La funzione getPropByName() prende un parametro prop e ritorna una funzione che prende come parametro un oggetto.
+                        </li>
+                        <li>
+                            -Questa funzione ritorna poi il valore della proprietà prop dell'oggetto passato
+                        </li>
+                        <li>
+                            -Creiamo la funzione getRank che ha come valore il valore ritornato dalla funzione getPropByName lanciata sulla proprietà "rank"
+                        </li>
+                        <li>
+                            -La funzione getRank adesso prenderà un oggetto e da questo oggetto ritornerà sempre il valore della proprietà rank
+                        </li>
+                    </ul>
+                </div>
+                <!-- esempio 6 -->
+                <div class="col-12 col-md-5 m3">
+                    •<p>Abbiamo in realtà creato una funzione getPropByName generalizzata che possiamo utilizzare sempre</p>
+                    <figure><img src="./img/Immagine 2021-09-28 185833.png" alt="" class="img-fluid"></figure>
+                    <p>
+                        Adesso passiamo il parametro "score", e salveremo la funzione che questa ritorna nella costante getScore
+                    </p>
+                    <p>
+                        Se i nostri oggetti hanno una costante con la proprietà "score" potremmo estrarla con questa funzione
+                    </p>
+                    <hr>
+                    <p>Possiamo rendere più professionale la nostra funzione con le arrow function</p>
+                    <figure><img src="./img/Immagine 2021-09-28 190118.png" alt="" class="img-fluid"></figure>
+                </div>
+                <hr>
+            </section>
+            <!-- Pure Functions -->
+            <section id="pureFunctions">
+                <div class="text-center">
+                    <h3 class="bg-warning">Pure Functions</h3>
+                </div>
+                <div>
+                    <p>
+                        Tutta la programmazione funzionale si basa sul concetto di funzione pura.
+                    </p>
+                </div>
+                <div class="col-12 m3"> 
+                    <h4 class="bg-secondary text-light">
+                        Stato
+                    </h4>
+                    <p>
+                        In generale consideriamo come Stato <strong>l'insieme di tutte le informazioni che rappresentano cosa sta accadendo al momento nella nostra applicazione</strong>, tutti i valori assegnati alle variabili o l'execution contest attualmente attivo.
+                    </p>
+                    <div class="row justify-content-evenly align-items-center">
+                        <div class="col-12 col-md-5">
+                            <p>
+                                Possiamo avere un'idea generale di Stato globale, quando salviamo, usiamo, modifichiamo, variabili definite all'interno dello scope globale
+                            </p>
+                        </div>
+                        <div class="col-12 col-md-5">
+                            <figure><img src="./img/Immagine 2021-09-28 191155.png" alt="" class="img-fluid"></figure>
+                        </div>
+                        <div class="col-12 col-md-5">
+                            <p>
+                                Possiamo avere uno Stato locale, ad esempio quando dichiariamo una variabile all'interno di una funzione.
+                            </p>
+                        </div>
+                        <div class="col-12 col-md-5">
+                            <figure><img src="./img/Immagine 2021-09-28 191321.png" alt="" class="img-fluid"></figure>
+                        </div>
+                        <div class="col-12 col-md-5">
+                            <p>
+                                L'indice all'interno di un ciclo for può essere un esempio di Stato locale. Rappresenta lo Stato, la situazione attuale all'interno del ciclo.
+                            </p>
+                        </div>
+                        <div class="col-12 col-md-5">
+                            <figure><img src="./img/Immagine 2021-09-28 191517.png" alt="" class="img-fluid"></figure>
+                        </div>
+                    </div>
+                    
+                    
+                    
+                </div>
+                <div class="col-12 m3">    
+                    <p>
+                        Il concetto di Stato è indispensabile per i nostri programmi. Dobbiamo tener traccia di informazioni e modificare e aggiornare lo Stato dei nostri programmi al variare delle situazioni.
+                    </p>
+                    <hr>
+                    <figure><img src="./img/Immagine 2021-09-28 193829.png" alt="" class="img-fluid"></figure>
+                    <p>
+                        Verrebbe naturale credere che ci serva avere una sorta di Stato globale per conservare informazioni generali, che possono essere utili a diverse parti del nostro programma. Pensiamo alla variabile userID che tiene traccia dell'utente attualmente registrato. Questa variabile può essere utilizzata da varie funzioni del nostro programma. Per questo motivo potremmo pensare di scrivere questa variabile come globale, così che ogni funzione nel nostro programma possa accedervi e modificarla nel caso.
+                    </p>
+                    <p>
+                        Questo però è un problema. Perchè se ogni funzione è ingrado di modificare il valore della variabile userID, allora dovremo essere molto attenti. Se la variabile viene cambiata da una funzione, ciò ha ripercussioni su tutte le altre funzioni che manipolano la stessa variabile. Questo può portare a bug ed a una logica contorta. Non è facile tenere traccia di dove e quando si verificano i cambiamenti se questi possono avvenire ovunque.
+                    </p>
+                    <p>
+                        Come regola generale dovremmo dire che più è globale un pezzo di Stato, più attenti e più accortezze dovremmo avere quando lo cambiamo.
+                    </p>
+                    <br>
+                    <p>
+                        Abbiamo dedotto che avere uno Stato globale condiviso non è quasi mai una buona idea. 
+                    </p>
+                    <p>
+                        Il modo migliore per evitare problemi dovuti da uno Stato condiviso è <strong>assicurarsi che le nostre funzioni non referenzino questo Stato se non necessario</strong>.
+                    </p>
+                </div>
+                <div class="row justify-content-evenly">
+                    <div class="col-12 col-md-5">
+                        <figure>
+                            <img src="./img/Immagine 2021-09-29 161706.png" alt="" class="img-fluid">
+                        </figure>
+                    </div>
+                    <div class="col-12 col-md-5">
+                        <p>←In questo pezzo di codice, stiamo introducendo un accoppiamento implicito tra la costante CURRENT_USER e getUserID. Infatti se volessimo rinominare l'oggetto CURRENT_USER dovremmo cambiarne il nome anche all'interno della funzione.</p>
+                        <div class="row align-items-center">
+                            <div class="col-6">
+                                <p>
+                                    Si risolve passando un parametro a getUserID. Adesso dobbiamo scrivere il parametro reale nella chiamata alla funzione, ma la nostra funzione adesso è più generale ed intuitiva se siamo stati bravi nel dare i nomi. Soprattutto non è legata intrinsecamente al nostro Stato globale. 
+                                </p>
+                            </div>
+                            <div class="col-6">
+                                <figure>
+                                    <img src="./img/Immagine 2021-09-29 163122.png" alt="" class="img-fluid">
+                                </figure>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </section>
+            <!-- Immutabilità -->
+            <section id="immutabilità">
+                <div class="text-center">
+                    <h3 class="bg-warning">Immutabilità</h3>
+                </div>
+                <div class="col-12 col-md-5 m-3">
+                    <p>
+                        Dobbiamo assicurarci di non mutare gli argomenti passati come parametri alle funzioni.
+                    </p>
+                    <figure><img src="./img/Immagine 2021-09-29 163855.png" alt="" class="img-fluid"></figure>
+                </div>
+                <div class="col-12 col-md-5 m-3">
+                    <p>
+                        ← Quando usiamo il metodo .pop sull'array "scores", stiamo modificando l'array originale sull'oggetto, modifica che si propaga sullo Stato condiviso globale ossia sull'oggetto CURRENT_USER stesso. 
+                    </p>
+                    <p>
+                        In generale <strong>dovremmo assicurarci che le nostre funzioni ritornino sempre nuovi valori, nuovi oggetti, senza mai modificare i parametri in ingresso</strong>.
+                    </p>
+                </div>
+                <div class="col-12 col-md-5 m-3">
+                    <p>
+                        Il problema dell'immutabilità potrebbe essere risolvibile:
+                    </p>
+                    <p>
+                        -Utilizzando <span>const</span>, utilizzando let solo per quelle variabili che siamo certi che dovranno variare. Non risolve questo problema negli oggetti.
+                    </p>
+                    <p>
+                        -Applichiamo allora un <span>deep freeze</span>.
+                    </p>
+                    <p>
+                        -Quando dobbiamo utilizzare oggetti effettuiamo un <span>deep clone</span>.
+                    </p>
+                </div>
+                <div class="col-12 col-md-5 m-3">
+                    <p>
+                        Nella programmazione procedurale, una variabile rappresenta un cassetto, il cui valore può cambiare nel tempo.
+                    </p>
+                    <span>Nuovo stato invece di modifiche allo Stato</span>.
+                    <p>
+                        Nella programmazione funzionale, un valore rappresenta una particolare fotografia, che rappresenta lo Stato della nostra applicazione e la variabile che valorizziamo con quel valore, non è altro che un alias per quel valore. Quindi invece di cambiare foto o mutare il dato, scattiamo nuove foto.
+                    </p>
+                </div>
+                <div class="col-12 col-md-5 m-3">
+                    <span>Side Effect:</span>
+                    <ul>
+                        Esempi:
+                        <li>Modifica dello Stato condiviso</li>
+                        <li>Scrittura in console</li>
+                        <li>Chiamate API</li>
+                        <li>MAnipolazione del DOM</li>
+                        <li>...</li>
+                    </ul>
+                    <p>
+                        Nella programmazione funzionale dovremo cercare di strutturare il nostro codice in maniera tale che i side effect siano facili da gestire e contenuti.
+                    </p>
+                </div>
+            </section>
+            <!-- Trasparenza referenziale -->
+            <section id="trasparenzaReferenziale">
+                <div class="text-center">
+                    <h3 class="bg-warning">Trasparenza referenziale</h3>
+                </div>
+                <div class="col-12 col-md-5 m-3">
+                    <p>
+                    <strong>Una funzione ha trasparenza referenziale quando possiamo sostituire la chiamata alla funzione con il valore che essa produce senza modificare il comportamento del programma</strong>.
+                    <figure><img src="./img/Immagine 2021-09-29 175605.png" alt="" class="img-fluid"></figure>
+                </div>
+                <div class="col-12 col-md-5 m-3">
+                    <p>
+                        E' normale che una funzione per avere trasparenza referenziale, <strong>deve essere una funzione priva di side effects</strong>. Questa funzione non ha trasparenza referenziale, perchè non possiamo sostituire alla chiamata il valore ritornato, senza perdere il side effect sul DOM.
+                    </p>
+                    <figure><img src="./img/Immagine 2021-09-29 175817.png" alt="" class="img-fluid"></figure>
+                </div>
+            </section>
+            <!-- Funzione Pura-->
+            <section id="funzionePura">
+                <div class="text-center">
+                    <h3 class="bg-warning">Funzione Pura</h3>
+                </div>
+                <div class="col-12 col-md-5 m-3">
+                    <p>
+                        Se una funzione:
+                        <ul>
+                            <li>Non modifica lo Stato</li>
+                            <li>Non ha side effect</li>
+                            <li>Gode di trasparenza referenziale</li>
+                            <li>E' deterministica</li>
+                        </ul>
+                        la chiamiamo <strong>FUNZIONE PURA</strong>.
+                </div>
+                <div class="col-12 col-md-5 m-3">
+                    <p>
+                        Nei nostri programmi non potremmo mai avere sempre e solo funzioni pure, perchè avremmo sempre bisogni di side effects, come le chiamate API o scrittura sul DOM. O potremmo avere funzioni che non accettano parametri o funzioni che modificano lo Stato.
+                    </p>
+                    <p>
+                        L'idea però è quella di usare il più possibile le <strong>funzioni pure</strong> perchè hanno <strong>dei notevoli vantaggi</strong>:
+                        <ul>
+                            <li>performance</li>
+                            <li>leggibilità</li>
+                            <li>testing</li>
+                            <li>indipendenza</li>
+                        </ul>
+                    </p>
+                </div>
+            </section>
+             <!-- Partial Application-->
+            <section id="partialApplication">
+                <div class="text-center">
+                    <h3 class="bg-warning">Partial Application</h3>
+                </div>
+                <div>
+                    <p>
+                        <strong>Una funzione che ritorna un'altra funzione che può ritornare una'altra funzione</strong>. <br>
+                        <strong>Ogni funzione ritornata può prendere diversi parametri</strong>.
+                    </p>
+                    <p><span>Attenzione</span>, l'applicazione parziale di una funzione è una <strong>nuova funzione diversa da quella originale che prende però un numero inferiore di parametri</strong>.</p>
+                    
+                </div>  
+                <hr>
+                <div class="col-12 col-md-5">
+                    <p>
+                        Questa è una normalissima funzione che prende tre parametri in ingresso e ne resituisce la somma, ed è anche una funzione pura
+                    </p>
+                </div>
+                <div class="col-12 col-md-5">
+                    <figure><img src="./img/Immagine 2021-09-29 182059.png" alt="" class="img-fluid"></figure>
+                </div>
+                <hr>
+                <div>
+                    <p>
+                        Come cambia con un'applicazione parziale:
+                    </p>
+                </div>
+                <div class="col-12 col-md-5">
+                    <figure><img src="./img/Immagine 2021-09-29 182312.png" alt="" class="img-fluid"></figure>
+                </div>
+                <div class="col-12 col-md-5">
+                    <p>
+                        Scriviamo un'altra funzione sumToTen che fissa, inchioda il primo parametro da passare alla funzione sum.
+                        Questa non è proprio un'applicazione parziale.
+                    </p>
+                </div>
+                <hr>
+                <div>
+                    <p>
+                        E' più interessare scrivere la funzione così:
+                    </p>
+                </div>
+                <div class="col-12 col-md-5">
+                <figure><img src="./img/Immagine 2021-09-29 182713.png" alt="" class="img-fluid"></figure>
+                </div>
+                <div class="col-12 col-md-5">
+                    <p>
+                        La funzione sum prende un parametro "x" e ritorna una funzione che a sua volta prende due parametri. Questa è un'applicazione parziale. Possiamo poi chiamare sum su un numero e salvare la funzione ritornata su una nuova costante per poi chiamarla.
+                    </p>
+                    <p>
+                        Quello che abbiamo fatto è stato applicare parzialmente la funzione sum solo al primo parametro, fissandolo.
+                    </p>
+                </div>
+                <hr>
+                <div>
+                    <p>
+                        Volendo potremmo fare a meno della funzione intermedia e chiamare sum così:
+                    </p>
+                    <figure><img src="./img/Immagine 2021-09-29 183121.png" alt="" class="img-fluid"></figure>
+                </div>
+                <hr><hr><hr>
+                <div class="col-12 col-md-5">
+                    <p>
+                        Vediamo un esempio più pratico e complesso:
+                    </p>
+                </div>
+                <div class="col-12 col-md-5"> 
+                    <figure><img src="./img/Immagine 2021-09-29 184107.png" alt="" class="img-fluid"></figure>
+                </div>
+                <div>
+                    <p>
+                        Supponiamo di avere una funzione che a partire da un dominio ci permetta di prendere una lista di risorse e da queste, una risorsa specifica. Adesso scriviamo una funzione che applichi parzialmente la funzione getAPIURL:
+                    </p>
+                </div>
+                <div class="col-12 col-md-5">
+                    <figure><img src="./img/Immagine 2021-09-29 184508.png" alt="" class="img-fluid"></figure>
+                </div>
+                <div class="col-12 col-md-5">
+                    <p>
+                        <ul>
+                            <li>
+                                Al primo rigo abbiamo la funzione di prima.
+                            </li>
+                            <li>
+                                Poi dichiariamo la funzione fixBase: questa accetta una base come unico parametro in ingresso e poi ritorna una funzione; questa funzione ritornata accetta 2 parametri e lancia la funzione originale getAPIURL su tutti e tre. Quì dentro getAPIURL riesce a conoscere "base" perchè è una closure.
+                            </li>
+                            <li>
+                                A questo punto chiamiamo la funzione fixBase su un dominio, jsonplaceholder, e quello che otteniamo lo salviamo nella costante "base".
+                            </li>
+                            <li>
+                                Lanciamo "base" con parametri "posts" e un numero e otteniamo il nostro url completo.
+                            </li>
+                        </ul>
+                        
+                    </p>
+                </div>
+                <hr>
+                <div class="col-12 col-md-5">
+                    <p>Mantenendo sempre costante la "base", quindi applicando parzialmente la funzione getAPIURL, possiamo passare alla funzione "base" diversi parametri e così facendo prendere utenti e commenti per esempio.</p>
+                    <p>
+                        Abbiamo creato versioni specializzate di una stessa funzione
+                    </p>
+                </div>
+                <div class="col-12 col-md-5">
+                    <figure><img src="./img/Immagine 2021-09-29 185430.png" alt="" class="img-fluid"></figure>
+                </div>
+                <hr>
+                <div>
+                    <h6>
+                        Possiamo spingerci molto oltre. Possiamo creare una funzione che gestisce tutte queste applicazioni parziali in un punto solo.
+                    </h6>
+                </div>
+                <div class="col-12 col-md-5">
+                    <figure><img src="./img/Immagine 2021-09-29 185739.png" alt="" class="img-fluid"></figure>
+                </div>
+                <div class="col-12 col-md-5">
+                    <p>
+                        Questa arrow function prende in ingresso una funzione "fn" che sarà quella che vogliamo applicare parzialmente ed un qualunque numero di parametri. Ritorna una funzione che prende un qualunque altro numero di parametri e ritorna a sua volta la funzione "fn" passata all'inizio, anche questa è una closure, applicata su "args" e "otherArgs", qualunque essi siano. 
+                    </p> 
+                </div>
+                <div>
+                    <p>Adesso la possiamo applicare:</p>
+                </div>
+                <div class="col-12 col-md-5">
+                    <figure><img src="./img/Immagine 2021-09-29 190133.png" alt="" class="img-fluid"></figure>
+                </div>
+                <div class="col-12 col-md-5">
+                    <p>
+                        Nella costante "getBase" c'è una funzione che accetta un qualunque numero di parametri e ritorna la funzione "getAPIURL" con il primo parametro fissato "jsonplaceholder".
+                    </p>
+                    <p>
+                        Nella costante "getUserID" c'è una funzione che accetta un qualunque numero di parametri e ritorna la funzione "getBase" con il primo parametro fissato "users".
+                    </p>
+                </div>
+                <hr>
+                <div class="col-12 col-md-5">
+                    <p>
+                        Potremmo bloccare due parametri contemporaneamente
+                    </p>
+                </div>
+                <div class="col-12 col-md-5">
+                    <figure><img src="./img/Immagine 2021-09-29 191805.png" alt="" class="img-fluid"></figure>
+                </div>
+                <hr>
+                <div class="col-12 col-md-5">
+                    <p>
+                        Potremmo scrivere la funzione "partial" in pieno stile funzionale:
+                    </p>
+                </div>
+                <div class="col-12 col-md-5">
+                    <figure><img src="./img/Immagine 2021-09-29 192042.png" alt="" class="img-fluid"></figure>
+                </div>
+            </section>
+            <!-- Currying-->
+            <section id="currying">
+                <div class="text-center">
+                    <h3 class="bg-warning">Currying</h3>
+                </div>
+                <div>
+                    <p>
+                        Il Currying non è altro che l'applicazione parziale su funzioni ma ogni applicazione parziale prende solo un parametro e ritorna una funzione che prende solo un parametro.
+                    </p>
+                    <p><strong>Una funzione che ritorna un'altra funzione che può ritornare un'altra funzione</strong>.</p>
+                    <p><strong>Ogni funzione ritornata prende un solo parametro</strong>.</p>
+                    <p>Tecnica simile all'applicazione parziale che ci permette di fissare alcuni dei parametri della funzione e ritornare una funzione che accetta i restanti. La differenza è che nel Currying ritorniamo funzioni che accettano un solo parametro per volta. Si tratta quindi di funzioni con arietà 1.</p>
+                </div>
+                <div class="col-12 col-md-5">
+                    <figure><img src="./img/Immagine 2021-09-29 184107.png" alt="" class="img-fluid"></figure>
+                </div>
+                <div class="col-12 col-md-5">
+                    <p>
+                        Partendo da questa funzione possiamo scrivere una funzione in Currying in questa maniera:
+                    </p>
+                </div>
+                <div class="col-12 col-md-5">
+                    <figure><img src="./img/Immagine 2021-09-29 193349.png" alt="" class="img-fluid"></figure>
+                </div>
+                <div class="col-12 col-md-5">
+                    <p>
+                        Notiamo che ci sono molte closures. Per chiamare questa funzione dobbiamo passare i parametri uno alla volta.
+                    </p>
+                </div>
+                <div class="col-12 col-md-5">
+                    <figure><img src="./img/Immagine 2021-09-29 193644.png" alt="" class="img-fluid"></figure>
+                </div>
+                <div class="col-12 col-md-5">
+                    <p>
+                        La possiamo scrivere come arrow function.
+                    </p>
+                </div>
+                <hr>
+                <div class="col-12 col-md-5">
+                    <p>
+                        Possiamo scrivere una funzione generale che ci faccia il Currying della funzione assegnata:
+                    </p>
+                </div>
+                <div class="col-12 col-md-5">
+                    <figure><img src="./img/Immagine 2021-09-29 193908.png" alt="" class="img-fluid"></figure>
+                </div>
+                <div>
+                    <p>
+                        La funzione "c" prende in ingresso una funzione e ritorna una funzione. Questa funzione ritornata prende in ingresso un qualunque numero di argomenti "args" e controlla con un operatore ternario. Se il numero degli argomenti passati è maggiore o uguale al numero degli argomenti passati alla funzione "fn", allora lanciamo la funzione "fn" sugli argomenti passati, altrimenti non lanciamo ancora la funzione "fn" ma una funzione, un'applicazione parziale, applicando ricorsivamente la funzione "c" su "fn", con gli argomenti precedenti più i nuovi.
+                    </p>
+                </div>
+            </section>
+            <!-- Function Composition-->
+            <section id="functionComposition">
+                
+                <div class="text-center">
+                    <h3 class="bg-warning">Function Composition</h3>
+                </div>
+                <div>
+                    <ol>
+                        <li>Analizzare il problema in maniera generale</li>
+                        <li>Scomporlo in problemi più semplici</li>
+                        <li>Risolvere i singoli problemi</li>
+                        <li>Ricomporre tutto insieme per avere una soluzione generale e completa</li>
+                    </ol>
+                    <p>
+                    La <strong>composizione di funzioni è il concetto che ci permetterà di risolvere il 4° punto</strong>
+                    </p>
+                </div>
+                <div class="col-12 col-md-5">
+                    <figure><img src="./img/Immagine 2021-09-29 201820.png" alt="" class="img-fluid"></figure>
+                </div>
+                <div class="col-12 col-md-5">
+                    <p>
+                        Abbiamo un array fatto da oggetti. Ogni oggetto contiene un nome e un array di punteggi, vogliamo estrarre la media punteggi più alta.
+                    </p>
+                </div>
+                <div class="col-12 col-md-5">
+                    <p>
+                        Cominciamo a scrivere una funzione generale che estrae una proprietà da un oggetto
+                    </p>
+                </div>
+                <div class="col-12 col-md-5">
+                    <figure><img src="./img/Immagine 2021-09-29 202045.png" alt="" class="img-fluid"></figure>
+                </div>
+                <div class="col-12 col-md-5">
+                    <p>
+                        Vogliamo applicare questa funzione su ogni elemento dell'array. Scriviamo una funzione che usa .map e come callback questa funzione, con parametro "scores" che è la proprietà che ci interessa.
+                    </p>
+                </div>
+                <div class="col-12 col-md-5">
+                    <figure><img src="./img/Immagine 2021-09-29 202217.png" alt="" class="img-fluid"></figure>
+                </div>
+                <div class="col-12 col-md-5">
+                    <p>
+                        Ci servirà una funzione che si occupi di calcolare le medie. Anche questa funzione prenderà in ingresso un array e ne restituirà la media.
+                    </p>
+                </div>
+                <div class="col-12 col-md-5">
+                    <figure><img src="./img/Immagine 2021-09-29 202424.png" alt="" class="img-fluid"></figure>
+                </div>
+                <div class="col-12 col-md-5">
+                    <p>
+                    Dovremmo applicare questa funzione su ogni elemento di un array. Come prima .map e callback.
+                    </p>
+                </div>
+                <div class="col-12 col-md-5">
+                    <figure><img src="./img/Immagine 2021-09-29 202545.png" alt="" class="img-fluid"></figure>
+                </div>
+                <div class="col-12 col-md-5">
+                    <p>
+                    Alla fine prendiamo il massimo di queste medie.
+                    </p>
+                </div>
+                <div class="col-12 col-md-5">
+                    <figure><img src="./img/Immagine 2021-09-29 202653.png" alt="" class="img-fluid"></figure>
+                </div>
+                <hr>
+                <div class="text-center">
+                    <p>Ora abbiamo tutti i pezzi</p>
+                </div>
+                <div class="col-12 col-md-5">
+                    <p>
+                    L'ultimo passaggio è quello di applicare tutte queste funzioni una dopo l'altra. Sono tutte funzioni pure.
+                    </p>
+                </div>
+                <div class="col-12 col-md-5">
+                    <figure><img src="./img/Immagine 2021-09-29 202755.png" alt="" class="img-fluid"></figure>
+                </div>
+                <hr>
+                <div class="col-12 col-md-5">
+                    <p>
+                    In un'ottica di programmazione funzionale, il nostro obbiettivo è quello di scrivere funzioni semplici e riutilizzabili per poi potere esprime questa sequenza di operazioni componendo queste funzioni. In questo caso chiamiamo funzioni, una dopo l'altra e ogni funzione successiva prende come parametro in ingresso ciò che viene ritornato dalla funzione precedente.
+                    </p>
+                </div>
+                <div class="col-12 col-md-5">
+                    <figure><img src="./img/Immagine 2021-09-29 203020.png" alt="" class="img-fluid"></figure>
+                </div>
+                <hr>
+                <div class="col-12 col-md-5">
+                    <p>
+                    Queste parentesi tonde non sono il massimo. Possiamo scrivere una funzione generale che prende in ingresso un qualunque numero di funzioni e ne ritorna la loro composizione. Questa funzione prende un qualunque numero di funzioni in ingresso e ritorna una funzione. Questa funzione prende in ingresso un input e ritorna una funzione. La funzione ottenuta applicando "reduceRight" su ogni funzione passata come parametro, applicata all'input.
+                    </p>
+                </div>
+                <div class="col-12 col-md-5">
+                    <figure><img src="./img/Immagine 2021-09-29 203609.png" alt="" class="img-fluid"></figure>
+                </div>
+                <hr>
+                <div class="col-12 col-md-5">
+                    <p>
+                    Ora non ci resta che utilizzarla.
+                    </p>
+                    <span>COMPOSE</span>
+                    <p>
+                        Siccome stiamo utilizzando "reduceRight" dobbiamo scrivere la prima funzione che vogliamo applicare per ultima, all'interno della chiamata a compose. Spesso si sceglie di utilizzare reduceRight per una questione di coerenza con come si scrivono funzione composte in matematica, ossia applicando prima la più interna, quella più a destra che è più vicina alla variabile indipendente e poi tutte le altre muovendosi verso l'esterno. 
+                    </p>
+                </div>
+                <div class="col-12 col-md-5">
+                    <figure><img src="./img/Immagine 2021-09-29 203837.png" alt="" class="img-fluid"></figure>
+                </div>
+                <hr>
+                <div class="col-12 col-md-5">
+                    <p>
+                    Oltre a compose c'è anche il <span>PIPE</span>
+                    </p>
+                    <p>
+                        Ossia l'applicazione in sequenza di funzioni, da sinistra a destra.
+                    </p>
+                </div>
+                <div class="col-12 col-md-5">
+                    <figure><img src="./img/Immagine 2021-09-29 204422.png" alt="" class="img-fluid"></figure>
+                </div>
+            </section>
+        </div>
+    </div>
+        
+        
+        <!-- Optional JavaScript; choose one of the two! -->
+        
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+        
+        <script src="./javascript.js"></script>
+    </body>
+    </html>
